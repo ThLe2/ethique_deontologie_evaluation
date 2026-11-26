@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Évaluation finale — Éthique et déontologie</title>
+<style>
+
+:root{--prune:#8C1E70;--prune-fonce:#5E1349;--prune-clair:#F4E6EE;--accent:#C77BAA;
+ --vert:#283C28;--gris:#3C3C3C;--gris-moyen:#8A7A85;--filet:#E8DCE5;--creme:#FAF6F8;
+ --ok:#2F7A4F;--ko:#B23B3B;--amb:#B5852A;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--creme);color:var(--gris);
+ font-family:"Nunito","Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.62}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+header.bandeau{background:var(--prune-fonce);color:#fff;padding:18px 0;border-bottom:4px solid var(--accent)}
+header.bandeau .wrap{padding-bottom:0}
+.chapitre{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#EAD3E3}
+.chapitre span{color:var(--accent);margin:0 6px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:27px;line-height:1.25;margin:8px 0 4px;color:#fff}
+.sous{color:#EAD3E3;font-size:14.5px;margin:0}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:20px;color:var(--prune-fonce);
+ margin:34px 0 0;padding-bottom:8px;border-bottom:2px solid var(--filet)}
+h2 .num{color:var(--accent);margin-right:8px}
+h3{font-size:15px;color:var(--vert);margin:20px 0 8px;letter-spacing:.02em}
+.carte{background:#fff;border:1px solid var(--filet);border-radius:10px;padding:20px 22px;margin:18px 0;
+ box-shadow:0 1px 2px rgba(94,19,73,.05)}
+.enc{background:var(--prune-clair);border-left:5px solid var(--prune);padding:14px 18px;
+ border-radius:0 8px 8px 0;margin:18px 0;font-size:15.2px}
+.enc .t{display:block;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+ font-weight:800;color:var(--prune-fonce);margin-bottom:6px}
+.enc.al{background:#FBF4F4;border-left-color:var(--ko)}.enc.al .t{color:var(--ko)}
+.enc.ci{background:#FCF8F0;border-left-color:var(--amb)}.enc.ci .t{color:#8A6418}
+.situ{background:#FCF9FB;border:1px dashed var(--filet);border-radius:8px;padding:16px 18px;margin:16px 0;font-size:15.2px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.duo>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:15px 17px;font-size:14.8px}
+.duo .h{font-weight:800;color:var(--prune-fonce);margin-bottom:7px;font-size:14.5px}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.tri>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:14px 15px;font-size:14.3px}
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.quad>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:12px 13px;font-size:13.6px}
+.quad .h{font-weight:800;color:var(--prune-fonce);margin-bottom:6px;font-size:13px;
+ text-transform:uppercase;letter-spacing:.04em}
+.tri .h{font-weight:800;color:var(--prune-fonce);margin-bottom:6px;font-size:13.5px;
+ text-transform:uppercase;letter-spacing:.05em}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.8px;background:#fff}
+th,td{border:1px solid var(--filet);padding:9px 12px;text-align:left}
+thead th{background:var(--prune-clair);color:var(--prune-fonce);font-size:13.5px}
+tbody th{font-weight:600;color:var(--gris)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td,tr.tot th{background:#FBF3F8;font-weight:800;color:var(--prune-fonce)}
+.dl{display:inline-flex;align-items:center;gap:9px;background:var(--prune);color:#fff;text-decoration:none;
+ padding:11px 20px;border-radius:8px;font-weight:700;font-size:15px;margin:20px 0 4px}
+.dl:hover{background:var(--prune-fonce)}
+ol.q{padding-left:0;list-style:none;counter-reset:q}
+ol.q>li{margin:16px 0;padding-left:38px;position:relative}
+ol.q>li::before{counter-increment:q;content:counter(q);position:absolute;left:0;top:1px;
+ width:26px;height:26px;border-radius:50%;background:var(--prune-clair);color:var(--prune-fonce);
+ font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+b,strong{color:var(--vert)}
+footer{text-align:center;font-size:12.5px;color:var(--gris-moyen);padding:26px 18px 12px;
+ border-top:1px solid var(--filet);margin-top:44px}
+@media(max-width:860px){.quad{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.duo,.tri,.quad{grid-template-columns:1fr}h1{font-size:22px}}
+@media print{body{background:#fff}.dl{display:none}header.bandeau{background:#5E1349 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+
+.champ{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:11px 0;
+ padding:11px 13px;background:#FCF9FB;border:1px solid var(--filet);border-radius:9px}
+.champ .lb{flex:1 1 340px;font-size:15px}
+.champ .pts{font-size:12px;color:var(--gris-moyen);white-space:nowrap}
+input.num,select.ch{font-family:inherit;font-size:15px;padding:9px 12px;border:1.5px solid var(--filet);
+ border-radius:8px;background:#fff;color:var(--gris);min-width:210px}
+input.num{min-width:150px;text-align:right;font-variant-numeric:tabular-nums}
+input.num:focus,select.ch:focus{outline:none;border-color:var(--prune)}
+input.num:disabled,select.ch:disabled{background:#F1EBEF;color:var(--gris-moyen);cursor:not-allowed}
+.champ.just{border-color:#BFE0CC;background:#F3FAF5}
+.champ.faux{border-color:#EFC9C9;background:#FDF5F5}
+.verdict{font-weight:800;font-size:13px;white-space:nowrap}
+.verdict.ok{color:var(--ok)}.verdict.ko{color:var(--ko)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--prune);color:#fff;border:0;
+ padding:12px 22px;border-radius:8px;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.btn:hover{background:var(--prune-fonce)}
+.btn:disabled{background:#C9B7C3;cursor:not-allowed}
+.btn.sec{background:#fff;color:var(--prune-fonce);border:1.5px solid var(--filet)}
+.btn.sec:hover{background:var(--prune-clair)}
+.barre{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.fige{display:inline-block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;
+ color:var(--prune-fonce);background:var(--prune-clair);padding:6px 11px;border-radius:20px}
+.corr{display:none;margin-top:16px}.corr.on{display:block}
+.score{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;
+ background:var(--prune-fonce);color:#fff;border-radius:10px;padding:18px 22px;margin:18px 0}
+.score .gros{font-family:Georgia,serif;font-size:32px;font-weight:700;color:#fff}
+.score .lib{font-size:14px;color:#EAD3E3}
+.opt{display:block;background:#fff;border:1.5px solid var(--filet);border-radius:9px;
+ padding:11px 14px;margin:8px 0;font-size:15px;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt input{margin-right:10px}
+.opt.sel{border-color:var(--prune);background:var(--prune-clair)}
+.opt.bonne{border-color:var(--ok);background:#F3FAF5}
+.opt.mauvaise{border-color:var(--ko);background:#FDF5F5}
+.opt.verrou{cursor:not-allowed}
+.qbloc{background:#fff;border:1px solid var(--filet);border-radius:10px;padding:18px 20px;margin:16px 0}
+.qnum{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+.qth{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;
+ color:var(--prune-fonce);background:var(--prune-clair);padding:4px 9px;border-radius:20px;margin-left:8px}
+.qen{font-size:16.5px;font-weight:700;color:var(--vert);margin:8px 0 4px}
+.multi{font-size:12.5px;color:var(--gris-moyen);font-style:italic;margin-bottom:6px}
+.prog{height:8px;background:var(--filet);border-radius:20px;overflow:hidden;margin:14px 0 4px}
+.prog i{display:block;height:100%;background:var(--prune);width:0;transition:width .25s}
+.sticky{position:sticky;bottom:0;background:var(--creme);padding:12px 0;border-top:1px solid var(--filet)}
+.redac{width:100%;font-family:inherit;font-size:15px;line-height:1.6;padding:12px 14px;
+ border:1.5px solid var(--filet);border-radius:9px;background:#fff;color:var(--gris);resize:vertical}
+.redac:focus{outline:none;border-color:var(--prune)}
+.redac:disabled{background:#F1EBEF;color:var(--gris-moyen)}
+.cpt{font-size:12.5px;color:var(--gris-moyen);margin-top:5px}
+.sticky{position:sticky;bottom:0}
+#voile{position:fixed;inset:0;background:rgba(94,19,73,.93);z-index:99;
+ display:flex;align-items:center;justify-content:center;padding:20px}
+#voile .ident{background:var(--creme);border-radius:14px;padding:26px 28px;max-width:520px;width:100%}
+#voile .champ{background:#fff}
+@media print{.btn,.sticky,#voile{display:none}}
+
+</style></head>
+<body>
+<header class="bandeau"><div class="wrap">
+ <div class="chapitre">Éthique et déontologie <span>/</span> Évaluation</div><h1>Évaluation finale</h1><p class="sous">Éthique et déontologie — 40 questions · seuil 70 %</p>
+</div></header>
+<div class="wrap">
+
+<div class="carte">
+<div class="enc"><span class="t">AVANT DE COMMENCER</span>40 questions sur l'ensemble des cinq modules, regroupées par thème. 22 sont à choix, dont 4 à <b>PLUSIEURS RÉPONSES</b>, signalées et comptées tout ou rien. 18 sont à <b>RÉDIGER</b> en quelques lignes : chacune vaut un point, attribué selon les éléments attendus que contient votre réponse. Le seuil de réussite est fixé à <b>70 %</b>, soit 28 points sur 40. La validation n'est possible qu'une fois toutes les questions traitées ; ensuite, vos réponses sont figées et la correction s'affiche.</div>
+<div class="enc ci"><span class="t">CE QUE VOUS OBTIENDREZ</span>À la validation, un <b>BILAN</b> se télécharge : score global, résultat par thème et détail question par question, avec la bonne réponse et son explication. C'est ce document qui atteste de votre passage.</div>
+</div>
+
+<div class="prog"><i id="jauge"></i></div>
+<p style="font-size:13px;color:var(--gris-moyen);margin:0 0 6px" id="compteur">0 question traitée sur 40</p>
+
+<div id="questions"></div>
+<div id="resultat"></div>
+
+<div class="barre sticky">
+ <button class="btn" id="valider" disabled>Valider l'évaluation et télécharger le bilan</button>
+ <span id="etatBtn" style="font-size:13px;color:var(--gris-moyen)">Répondez aux 40 questions pour pouvoir valider.</span>
+</div>
+
+<footer>TMK Performances - N° Siret : 49841924100027 - Code NAF : 8559A</footer>
+</div>
+<script>
+/* ---------- blocage du copier-coller ---------- */
+['copy','cut','paste','contextmenu','dragstart','selectstart'].forEach(ev=>
+  document.addEventListener(ev, e=>e.preventDefault()));
+document.addEventListener('keydown', e=>{
+  if((e.ctrlKey||e.metaKey) && ['c','x','v','u','s','p','a'].includes(e.key.toLowerCase())) e.preventDefault();
+});
+const CODE = "ethique_deontologie_evaluation";
+const BANDEAU = "Éthique et déontologie / Évaluation finale";
+const TITRE_BILAN = "Bilan de l'évaluation finale — Éthique et déontologie";
+const THEMES = {
+ "T1": "La déontologie du conseiller",
+ "T2": "La déontologie vis-à-vis du client",
+ "T3": "La lutte contre la corruption",
+ "T4": "LCB-FT : cadre et opérations atypiques",
+ "T5": "LCB-FT : les dispositifs"
+};
+const Q = [
+ {
+  "th": "T1",
+  "en": "L'article L. 519-4-1 CMF impose à l'IOBSP de se comporter d'une manière :",
+  "op": [
+   "Rapide, efficace et rentable",
+   "Honnête, équitable, transparente et professionnelle",
+   "Prudente et discrète",
+   "Conforme aux objectifs de la banque"
+  ],
+  "c": 1,
+  "ex": "C'est la règle générale de conduite, qui irrigue toutes les obligations du module 1.",
+  "rf": "Module 1 · art. L. 519-4-1 CMF"
+ },
+ {
+  "th": "T1",
+  "en": "Un conseiller dit : « Je suis totalement indépendant, je ne touche rien des banques », alors qu'il est commissionné. De quoi s'agit-il ?",
+  "op": [
+   "D'un argument commercial admis",
+   "D'une pratique commerciale trompeuse",
+   "D'un simple oubli",
+   "D'un manquement au secret"
+  ],
+  "c": 1,
+  "ex": "La rémunération et les liens avec les établissements font partie de l'information due au client.",
+  "rf": "Module 1 · art. L. 121-2 C. consom."
+ },
+ {
+  "th": "T1",
+  "en": "À qui est dû le devoir de mise en garde ?",
+  "op": [
+   "À tout client",
+   "À l'emprunteur non averti, sur le risque d'endettement excessif",
+   "Uniquement aux professionnels",
+   "À la caution seulement"
+  ],
+  "c": 1,
+  "ex": "Posé par la Cour de cassation en chambre mixte le 29 juin 2007.",
+  "rf": "Module 1 · Cass. ch. mixte, 29 juin 2007"
+ },
+ {
+  "th": "T1",
+  "en": "Quelle pièce constitue la base du conseil et sa seule preuve ?",
+  "op": [
+   "La plaquette commerciale",
+   "La fiche de recueil signée par le client",
+   "L'offre de prêt",
+   "Le relevé de compte"
+  ],
+  "c": 1,
+  "ex": "Remplie après coup, elle ne prouve rien.",
+  "rf": "Module 1"
+ },
+ {
+  "th": "T1",
+  "en": "Le secret bancaire n'est pas opposable : (plusieurs réponses)",
+  "op": [
+   "Au juge pénal",
+   "À l'ACPR",
+   "Au voisin du client",
+   "À Tracfin"
+  ],
+  "c": [
+   0,
+   1,
+   3
+  ],
+  "ex": "Ni au fisc, ni aux douanes, ni à la Banque de France ; jamais à un tiers privé.",
+  "rf": "Module 1 · art. L. 511-33 CMF",
+  "multi": true
+ },
+ {
+  "th": "T1",
+  "en": "Citez les informations à remettre au client avant toute prestation.",
+  "minlen": 80,
+  "modele": "Avant toute prestation, sur support durable : l'identité de l'intermédiaire, son numéro d'immatriculation ORIAS, sa catégorie, les établissements avec lesquels il travaille ou son exclusivité, sa rémunération, et les modalités de réclamation et de médiation.",
+  "rf": "Module 1 · art. R. 519-20 et s. CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Identité et numéro ORIAS",
+     "accepte": [
+      "orias",
+      "immatriculation",
+      "identité"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Catégorie",
+     "accepte": [
+      "catégorie",
+      "courtier",
+      "mandataire"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Établissements partenaires ou exclusivité",
+     "accepte": [
+      "partenaire",
+      "établissements",
+      "banques",
+      "exclusivité",
+      "exclusif"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Rémunération",
+     "accepte": [
+      "rémunération",
+      "commission",
+      "honoraires",
+      "rémunéré"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Réclamations et médiation",
+     "accepte": [
+      "réclamation",
+      "médiateur",
+      "médiation",
+      "recours"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T1",
+  "en": "Expliquez les trois étapes du devoir de conseil.",
+  "minlen": 80,
+  "modele": "Recueillir la situation, les revenus, les charges et le projet du client ; proposer une solution cohérente avec ses besoins ; motiver la proposition en expliquant pourquoi elle convient et ce qu'elle ne couvre pas.",
+  "rf": "Module 1",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Recueillir les besoins et la situation",
+     "accepte": [
+      "recueillir",
+      "recueil",
+      "situation",
+      "besoins"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Proposer une solution adaptée",
+     "accepte": [
+      "proposer",
+      "solution",
+      "adaptée",
+      "cohérente"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Motiver : pourquoi elle convient",
+     "accepte": [
+      "motiver",
+      "pourquoi",
+      "justifier",
+      "expliquer"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Dire ce qu'elle ne couvre pas",
+     "accepte": [
+      "limites",
+      "ne couvre pas",
+      "risques",
+      "inconvénients"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T1",
+  "en": "Une emprunteuse non avertie insiste pour un prêt qui porterait son endettement à 45 %. Que faites-vous ?",
+  "minlen": 80,
+  "modele": "Je la mets en garde par écrit sur le risque d'endettement excessif au regard de ses capacités financières. Elle reste libre, mais je formalise la mise en garde et je la fais signer. Si la solvabilité n'est pas établie, je déconseille l'opération : c'est le conseil négatif.",
+  "rf": "Module 1",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Mise en garde sur l'endettement excessif",
+     "accepte": [
+      "mise en garde",
+      "mettre en garde",
+      "endettement excessif",
+      "alerte"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Formalisée par écrit",
+     "accepte": [
+      "écrit",
+      "par écrit",
+      "formalise",
+      "signée",
+      "trace"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Liberté de la cliente",
+     "accepte": [
+      "libre",
+      "liberté",
+      "décision"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Conseil négatif : déconseiller",
+     "accepte": [
+      "déconseiller",
+      "conseil négatif",
+      "refuser",
+      "ne pas accorder"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T1",
+  "en": "Distinguez confidentialité et secret bancaire.",
+  "minlen": 80,
+  "modele": "La confidentialité est un ensemble de gestes au quotidien : session verrouillée, entretien au calme, client authentifié au téléphone. Le secret bancaire est une obligation légale (art. L. 511-33 CMF) dont la violation est punie d'un an d'emprisonnement et de 15 000 € d'amende.",
+  "rf": "Module 1 · art. L. 511-33 CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Confidentialité : des gestes",
+     "accepte": [
+      "gestes",
+      "session",
+      "verrouillée",
+      "verrouiller",
+      "calme",
+      "authentifié",
+      "authentifier",
+      "authentification"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Secret : une obligation légale",
+     "accepte": [
+      "loi",
+      "légale",
+      "l. 511-33",
+      "511"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Sanction : 1 an",
+     "accepte": [
+      "1 an",
+      "un an",
+      "emprisonnement"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Sanction : 15 000 €",
+     "accepte": [
+      "15000",
+      "15 000",
+      "quinze mille"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T2",
+  "en": "Lesquels de ces messages sont des réclamations ? (plusieurs réponses)",
+  "op": [
+   "« Je conteste les frais prélevés en février. »",
+   "« Pouvez-vous m'envoyer mon RIB ? »",
+   "Un avis en ligne : « Trois semaines pour une carte, c'est honteux. »",
+   "Au téléphone : « On m'a vendu une assurance dont je ne voulais pas. »"
+  ],
+  "c": [
+   0,
+   2,
+   3
+  ],
+  "ex": "Tout mécontentement envers le professionnel, quel que soit le canal ; une demande de prestation n'en est pas une.",
+  "rf": "Module 2 · recommandation ACPR 2022-R-01",
+  "multi": true
+ },
+ {
+  "th": "T2",
+  "en": "Dans quel ordre traite-t-on un conflit d'intérêts ?",
+  "op": [
+   "Informer, puis gérer",
+   "Identifier, prévenir et gérer, puis informer en dernier recours",
+   "Informer seulement",
+   "Ignorer s'il est faible"
+  ],
+  "c": 1,
+  "ex": "L'information n'est qu'un dernier recours.",
+  "rf": "Module 2"
+ },
+ {
+  "th": "T2",
+  "en": "Quel est le prix maximal de l'offre spécifique destinée aux clients fragiles ?",
+  "op": [
+   "Gratuite",
+   "3 € par mois",
+   "10 € par mois",
+   "Librement fixé"
+  ],
+  "c": 1,
+  "ex": "Avec des frais d'incidents plafonnés.",
+  "rf": "Module 2 · art. R. 312-4-3 CMF"
+ },
+ {
+  "th": "T2",
+  "en": "Une violation de données présentant un risque se notifie à la CNIL dans un délai de :",
+  "op": [
+   "24 heures",
+   "72 heures",
+   "1 mois",
+   "2 mois"
+  ],
+  "c": 1,
+  "ex": "Article 33 du RGPD.",
+  "rf": "Module 2 · art. 33 RGPD"
+ },
+ {
+  "th": "T2",
+  "en": "Donnez les délais de traitement d'une réclamation et la voie de recours ensuite.",
+  "minlen": 80,
+  "modele": "Accusé de réception sous 10 jours ouvrables, réponse écrite sous 2 mois au plus à compter de l'envoi. Si la réponse ne convient pas, le client peut saisir gratuitement le médiateur, dans l'année qui suit sa réclamation écrite.",
+  "rf": "Module 2 · recommandation ACPR 2022-R-01",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "10 jours ouvrables pour l'accusé de réception",
+     "accepte": [
+      "10 jours",
+      "dix jours"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "2 mois pour la réponse",
+     "accepte": [
+      "2 mois",
+      "deux mois"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Le médiateur",
+     "accepte": [
+      "médiateur",
+      "médiation"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Gratuit",
+     "accepte": [
+      "gratuit",
+      "gratuite",
+      "gratuitement"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Dans l'année de la réclamation écrite",
+     "accepte": [
+      "1 an",
+      "un an",
+      "année",
+      "écrite"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T2",
+  "en": "Citez les critères réglementaires de détection de la fragilité financière.",
+  "minlen": 80,
+  "modele": "Des irrégularités ou incidents répétés pendant trois mois consécutifs, le montant des ressources portées au compte, une inscription au fichier central des chèques pendant trois mois consécutifs, et la recevabilité d'un dossier de surendettement.",
+  "rf": "Module 2 · art. R. 312-4-3 CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Incidents répétés pendant 3 mois",
+     "accepte": [
+      "incidents",
+      "irrégularités",
+      "3 mois",
+      "trois mois"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Montant des ressources",
+     "accepte": [
+      "ressources",
+      "revenus"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Inscription au FCC",
+     "accepte": [
+      "fcc",
+      "fichier central",
+      "chèques"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Surendettement recevable",
+     "accepte": [
+      "surendettement"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T2",
+  "en": "Un collègue note dans l'outil commercial : « client dépressif, prudence ». Que lui dites-vous ?",
+  "minlen": 80,
+  "modele": "C'est une donnée de santé, donc une donnée sensible, qui n'a rien à faire dans un outil commercial. Elle viole le principe de minimisation. Le client peut demander communication de ses données. Il faut supprimer la mention et n'écrire que des faits utiles au dossier.",
+  "rf": "Module 2 · art. 5 et 9 RGPD",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Donnée de santé, sensible",
+     "accepte": [
+      "santé",
+      "sensible"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Minimisation, pas nécessaire",
+     "accepte": [
+      "minimisation",
+      "nécessaire",
+      "utile",
+      "inutile"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Le client peut y accéder",
+     "accepte": [
+      "accès",
+      "communication",
+      "consulter",
+      "lire"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Supprimer la mention",
+     "accepte": [
+      "supprimer",
+      "effacer",
+      "retirer",
+      "enlever"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T2",
+  "en": "Un client fragile demande une carte premium. Que faites-vous ?",
+  "minlen": 80,
+  "modele": "Je lui présente d'abord l'offre spécifique, à trois euros par mois au plus, avec une carte à autorisation systématique et des frais d'incidents plafonnés, car son intérêt prime sur l'objectif commercial. S'il maintient sa demande, je l'informe des coûts et des risques et je trace l'échange.",
+  "rf": "Module 2",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Offre spécifique",
+     "accepte": [
+      "offre spécifique",
+      "offre adaptée"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "3 € par mois au plus",
+     "accepte": [
+      "3",
+      "trois"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Frais plafonnés",
+     "accepte": [
+      "plafonnés",
+      "plafonnement",
+      "plafonnée",
+      "plafond"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "L'intérêt du client prime",
+     "accepte": [
+      "intérêt",
+      "besoin"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Trace de l'échange",
+     "accepte": [
+      "trace",
+      "écrit",
+      "formalise",
+      "consigne"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T3",
+  "en": "Un analyste crédit demande 300 € pour accélérer un dossier. De quoi s'agit-il ?",
+  "op": [
+   "Corruption active",
+   "Corruption passive",
+   "Trafic d'influence",
+   "Abus de faiblesse"
+  ],
+  "c": 1,
+  "ex": "Solliciter un avantage contre un acte de sa fonction.",
+  "rf": "Module 3 · art. 445-2 C. pén."
+ },
+ {
+  "th": "T3",
+  "en": "Le délit de corruption est constitué : (plusieurs réponses)",
+  "op": [
+   "Même si l'offre est refusée",
+   "Même si l'acte n'est pas accompli",
+   "Seulement au-delà de 150 €",
+   "Même par un intermédiaire"
+  ],
+  "c": [
+   0,
+   1,
+   3
+  ],
+  "ex": "Aucun seuil de valeur dans le Code pénal.",
+  "rf": "Module 3",
+  "multi": true
+ },
+ {
+  "th": "T3",
+  "en": "Quelles entreprises doivent déployer les 8 mesures de la loi Sapin II ?",
+  "op": [
+   "Toutes",
+   "Au moins 500 salariés et plus de 100 M€ de chiffre d'affaires",
+   "Au moins 50 salariés",
+   "Uniquement les banques"
+  ],
+  "c": 1,
+  "ex": "Seuils cumulatifs, appréciés aussi au niveau du groupe.",
+  "rf": "Module 3 · loi n° 2016-1691, art. 17"
+ },
+ {
+  "th": "T3",
+  "en": "Quelle peine encourt une personne physique pour corruption privée ?",
+  "op": [
+   "1 an et 15 000 €",
+   "5 ans et 500 000 €",
+   "10 ans et 1 000 000 €",
+   "Aucune"
+  ],
+  "c": 1,
+  "ex": "10 ans et 1 M€ pour la corruption publique.",
+  "rf": "Module 3 · art. 445-1 C. pén."
+ },
+ {
+  "th": "T3",
+  "en": "Expliquez la différence entre corruption et trafic d'influence.",
+  "minlen": 80,
+  "modele": "La corruption est un pacte : un avantage contre l'accomplissement, ou l'abstention, d'un acte de la fonction de celui qui le reçoit. Dans le trafic d'influence, celui qui est payé vend son influence, réelle ou supposée, pour obtenir une décision favorable d'une autorité ou d'une administration publique.",
+  "rf": "Module 3",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Corruption : un avantage contre un acte",
+     "accepte": [
+      "acte",
+      "pacte",
+      "contrepartie"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Acte de la fonction",
+     "accepte": [
+      "fonction"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Trafic d'influence : vendre son influence",
+     "accepte": [
+      "influence"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Réelle ou supposée",
+     "accepte": [
+      "supposée",
+      "réelle"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Sur une autorité publique",
+     "accepte": [
+      "autorité",
+      "administration",
+      "publique"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T3",
+  "en": "Citez quatre des huit mesures de la loi Sapin II.",
+  "minlen": 80,
+  "modele": "Code de conduite, dispositif d'alerte interne, cartographie des risques, évaluation des tiers, contrôles comptables, formation des personnels exposés, régime disciplinaire, contrôle et évaluation interne.",
+  "rf": "Module 3 · loi n° 2016-1691, art. 17",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Code de conduite",
+     "accepte": [
+      "code de conduite"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Alerte interne",
+     "accepte": [
+      "alerte"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Cartographie des risques",
+     "accepte": [
+      "cartographie"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Évaluation des tiers",
+     "accepte": [
+      "tiers"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Contrôles comptables",
+     "accepte": [
+      "comptables",
+      "comptable"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Formation",
+     "accepte": [
+      "formation"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Régime disciplinaire",
+     "accepte": [
+      "disciplinaire",
+      "sanction"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Contrôle interne",
+     "accepte": [
+      "contrôle interne",
+      "évaluation interne"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T3",
+  "en": "Un partenaire vous offre un week-end pendant l'instruction de son dossier. Que faites-vous ?",
+  "minlen": 80,
+  "modele": "Je refuse poliment : la valeur dépasse un simple geste et le moment est sensible, puisque son dossier est en cours. Je déclare la proposition à mon responsable ou à la conformité, selon la politique cadeaux, et j'instruis le dossier sur ses seuls mérites.",
+  "rf": "Module 3",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Refus",
+     "accepte": [
+      "refuse",
+      "refuser",
+      "décline"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Valeur et moment sensibles",
+     "accepte": [
+      "valeur",
+      "moment",
+      "pendant",
+      "en cours"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Déclaration au responsable ou à la conformité",
+     "accepte": [
+      "déclare",
+      "déclarer",
+      "conformité",
+      "responsable",
+      "hiérarchie"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Politique cadeaux",
+     "accepte": [
+      "politique"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Dossier instruit sur ses mérites",
+     "accepte": [
+      "mérites",
+      "qualité",
+      "objectivement",
+      "objectifs",
+      "critères"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T4",
+  "en": "Qu'est-ce que le raffinage ?",
+  "op": [
+   "Le fractionnement des dépôts",
+   "L'échange de petites coupures contre de grosses",
+   "Le rachat précoce d'un contrat",
+   "Le recours à une société écran"
+  ],
+  "c": 1,
+  "ex": "Il réduit le volume d'espèces.",
+  "rf": "Module 4"
+ },
+ {
+  "th": "T4",
+  "en": "Quelle peine encourt l'auteur d'un blanchiment simple ?",
+  "op": [
+   "1 an et 15 000 €",
+   "5 ans et 375 000 €",
+   "10 ans et 750 000 €",
+   "20 ans et 1 M€"
+  ],
+  "c": 1,
+  "ex": "10 ans et 750 000 € pour le blanchiment aggravé.",
+  "rf": "Module 4 · art. 324-1 C. pén."
+ },
+ {
+  "th": "T4",
+  "en": "Un IOBSP est assujetti à la LCB-FT lorsqu'il :",
+  "op": [
+   "Distribue n'importe quel crédit",
+   "Agit en vertu d'un mandat du client et se voit confier des fonds",
+   "Est mandataire exclusif",
+   "Dépasse 500 000 € de chiffre d'affaires"
+  ],
+  "c": 1,
+  "ex": "Non assujetti ne veut pas dire non concerné.",
+  "rf": "Module 4 · art. L. 561-2 CMF"
+ },
+ {
+  "th": "T4",
+  "en": "Quel est le plafond de paiement en espèces d'un particulier résident à un professionnel ?",
+  "op": [
+   "500 €",
+   "1 000 €",
+   "3 000 €",
+   "15 000 €"
+  ],
+  "c": 1,
+  "ex": "15 000 € pour un non-résident agissant pour ses besoins personnels.",
+  "rf": "Module 4 · art. L. 112-6 CMF"
+ },
+ {
+  "th": "T4",
+  "en": "Lesquels sont des signaux atypiques en assurance-vie ? (plusieurs réponses)",
+  "op": [
+   "Rachat total peu après un versement important",
+   "Primes payées par un tiers sans lien",
+   "Versements modestes et réguliers depuis le compte du souscripteur",
+   "Bénéficiaire changé au profit d'un inconnu"
+  ],
+  "c": [
+   0,
+   1,
+   3
+  ],
+  "ex": "Des versements cohérents avec le profil ne sont pas atypiques.",
+  "rf": "Module 4",
+  "multi": true
+ },
+ {
+  "th": "T4",
+  "en": "Décrivez les trois phases du blanchiment.",
+  "minlen": 80,
+  "modele": "Le placement introduit les espèces dans le circuit financier. L'empilement multiplie les opérations pour brouiller la piste. L'intégration réinvestit les fonds dans l'économie légale.",
+  "rf": "Module 4",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Placement",
+     "accepte": [
+      "placement"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Introduire les espèces",
+     "accepte": [
+      "introduire",
+      "introduit",
+      "entrer",
+      "dépôt",
+      "espèces"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Empilement",
+     "accepte": [
+      "empilement"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Brouiller la piste",
+     "accepte": [
+      "brouiller",
+      "brouille",
+      "multiplier",
+      "multiplie",
+      "dissimuler",
+      "dissimulation",
+      "opacifier"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Intégration dans l'économie légale",
+     "accepte": [
+      "intégration",
+      "réinvestir",
+      "réinvestit",
+      "réinvestissement",
+      "économie légale"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T4",
+  "en": "Qu'est-ce que l'auto-prêt et pourquoi est-il suspect ?",
+  "minlen": 80,
+  "modele": "Le client se prête à lui-même, par une société qu'il contrôle, souvent à l'étranger, des fonds d'origine illicite. Le contrat de prêt donne une apparence légitime à l'arrivée des fonds. Il faut connaître le prêteur et l'origine de sa trésorerie.",
+  "rf": "Module 4",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Se prêter à soi-même",
+     "accepte": [
+      "lui-même",
+      "soi-même",
+      "ses propres"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Via une société qu'il contrôle",
+     "accepte": [
+      "société",
+      "structure"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Apparence légitime",
+     "accepte": [
+      "apparence",
+      "justifier",
+      "justification",
+      "légitime"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Origine de la trésorerie du prêteur",
+     "accepte": [
+      "origine",
+      "trésorerie",
+      "prêteur"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T4",
+  "en": "Un client dépose 9 500 € en espèces pour la troisième fois du mois. Que faites-vous ?",
+  "minlen": 80,
+  "modele": "Des dépôts répétés juste sous un seuil évoquent un fractionnement, le schtroumpfage : la vigilance ne dépend d'aucun seuil. Je demande l'origine des fonds et des justificatifs, je compare avec son profil, je consigne, et si l'explication manque, je transmets au correspondant LCB-FT sans en informer le client.",
+  "rf": "Module 4",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Fractionnement, schtroumpfage",
+     "accepte": [
+      "fractionnement",
+      "fractionne",
+      "fractionnés",
+      "fractionner",
+      "schtroumpf"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Pas de seuil",
+     "accepte": [
+      "seuil"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Origine et justificatifs",
+     "accepte": [
+      "origine",
+      "justificatifs",
+      "justificatif"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Transmission au correspondant",
+     "accepte": [
+      "correspondant",
+      "déclarant",
+      "tracfin",
+      "transmets",
+      "transmettre"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Sans informer le client",
+     "accepte": [
+      "sans informer",
+      "sans prévenir",
+      "ne pas informer",
+      "ne rien dire",
+      "sans en informer"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T5",
+  "en": "Qui est bénéficiaire effectif d'une société ?",
+  "op": [
+   "Toute société actionnaire",
+   "La personne physique qui détient plus de 25 % du capital ou des droits de vote, ou la contrôle",
+   "Le comptable",
+   "Le gérant salarié dans tous les cas"
+  ],
+  "c": 1,
+  "ex": "Toujours une personne physique.",
+  "rf": "Module 5 · art. R. 561-1 CMF"
+ },
+ {
+  "th": "T5",
+  "en": "Pendant combien de temps Tracfin peut-il s'opposer à l'exécution d'une opération ?",
+  "op": [
+   "24 heures",
+   "5 jours calendaires",
+   "10 jours ouvrables",
+   "2 mois"
+  ],
+  "c": 2,
+  "ex": "Prolongeable par le président du tribunal judiciaire de Paris.",
+  "rf": "Module 5 · art. L. 561-24 CMF"
+ },
+ {
+  "th": "T5",
+  "en": "Révéler au client l'existence d'une déclaration de soupçon est puni de :",
+  "op": [
+   "Rien",
+   "22 500 € d'amende",
+   "Un avertissement",
+   "La nullité de la déclaration"
+  ],
+  "c": 1,
+  "ex": "Interdiction de divulgation.",
+  "rf": "Module 5 · art. L. 574-1 CMF"
+ },
+ {
+  "th": "T5",
+  "en": "Un client figure sur le registre national des gels. Que faites-vous ?",
+  "op": [
+   "J'attends la fin du mois",
+   "Je gèle sans délai, et l'établissement informe la DG Trésor",
+   "Je préviens le client",
+   "Je clôture et lui remets le solde"
+  ],
+  "c": 1,
+  "ex": "Rien ne doit être mis à disposition de la personne visée.",
+  "rf": "Module 5 · art. L. 562-4 CMF"
+ },
+ {
+  "th": "T5",
+  "en": "Qui est une personne politiquement exposée, et qu'est-ce que ce statut change ?",
+  "minlen": 80,
+  "modele": "La personne qui exerce une fonction politique, juridictionnelle ou administrative importante, les membres de sa famille et ses proches, pendant la fonction et jusqu'à un an après sa cessation. C'est un facteur de risque, pas un soupçon : vigilance renforcée, accord d'un membre de la direction, origine du patrimoine et des fonds.",
+  "rf": "Module 5 · art. R. 561-18 CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Fonction importante",
+     "accepte": [
+      "fonction",
+      "fonctions",
+      "ministre",
+      "parlementaire",
+      "député",
+      "chef d'état"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Famille et proches",
+     "accepte": [
+      "famille",
+      "conjoint",
+      "proche",
+      "associé"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Un an après la fin de la fonction",
+     "accepte": [
+      "cessation",
+      "12 mois",
+      "douze mois",
+      "année"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Vigilance renforcée",
+     "accepte": [
+      "renforcée"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Accord de la direction",
+     "accepte": [
+      "direction",
+      "dirigeant"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T5",
+  "en": "Un client vous demande : « Vous allez me déclarer à Tracfin ? » Que répondez-vous ?",
+  "minlen": 80,
+  "modele": "Je ne confirme ni n'infirme. Je rappelle de façon neutre que la réglementation m'impose de connaître l'origine des fonds, comme pour tout client, et je redemande les justificatifs. Révéler une déclaration est interdit et puni de 22 500 € d'amende.",
+  "rf": "Module 5 · art. L. 561-18 CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Ni confirmer ni infirmer",
+     "accepte": [
+      "ni confirmer",
+      "ni infirmer",
+      "ni confirme",
+      "ni infirme",
+      "ne confirme",
+      "aucune confirmation",
+      "rien dire",
+      "ne dis rien"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Rappel neutre de la réglementation",
+     "accepte": [
+      "réglementation",
+      "obligation",
+      "tout client",
+      "vigilance"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Demande de justificatifs",
+     "accepte": [
+      "justificatifs",
+      "justificatif",
+      "origine"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Interdiction de divulgation",
+     "accepte": [
+      "interdit",
+      "interdiction",
+      "divulgation",
+      "divulguer",
+      "22500",
+      "22 500"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T5",
+  "en": "Quand et comment se fait une déclaration de soupçon ?",
+  "minlen": 80,
+  "modele": "Dès qu'on sait, soupçonne ou a de bonnes raisons de soupçonner que des fonds proviennent d'une infraction punie de plus d'un an ou financent le terrorisme. Un soupçon suffit, sans preuve ni seuil. Le collaborateur alerte le correspondant ; le déclarant désigné déclare à Tracfin, en principe avant l'exécution de l'opération.",
+  "rf": "Module 5 · art. L. 561-15 CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Un soupçon suffit",
+     "accepte": [
+      "soupçon",
+      "soupçonne"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Ni preuve ni seuil",
+     "accepte": [
+      "preuve",
+      "seuil"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Le correspondant ou déclarant",
+     "accepte": [
+      "correspondant",
+      "déclarant"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "À Tracfin",
+     "accepte": [
+      "tracfin"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Avant l'opération",
+     "accepte": [
+      "avant"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ },
+ {
+  "th": "T5",
+  "en": "Quelles sont les étapes de la connaissance du client ?",
+  "minlen": 80,
+  "modele": "Identifier le client, vérifier son identité sur un document officiel, comprendre l'objet et la nature de la relation, exercer une vigilance constante sur ses opérations, et conserver les documents cinq ans.",
+  "rf": "Module 5 · art. L. 561-5 et s. CMF",
+  "ouverte": true,
+  "attendu": {
+   "elements": [
+    {
+     "libelle": "Identifier",
+     "accepte": [
+      "identifier",
+      "identification",
+      "identité"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Vérifier sur document officiel",
+     "accepte": [
+      "vérifier",
+      "document",
+      "pièce"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Comprendre l'objet de la relation",
+     "accepte": [
+      "objet",
+      "nature",
+      "comprendre",
+      "profession",
+      "revenus"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Vigilance constante",
+     "accepte": [
+      "vigilance",
+      "suivre",
+      "suivi",
+      "constante"
+     ],
+     "points": 1
+    },
+    {
+     "libelle": "Conserver 5 ans",
+     "accepte": [
+      "5 ans",
+      "cinq ans",
+      "conserver"
+     ],
+     "points": 1
+    }
+   ]
+  }
+ }
+];
+const SEUIL = 70;
+const rep = Q.map(()=>null);
+let valide = false;
+
+function rendre(){
+ document.getElementById('questions').innerHTML = Q.map((q,i)=>`
+  <div class="qbloc" id="q${i}">
+   <span class="qnum">Question ${i+1} / ${Q.length}</span><span class="qth">${THEMES[q.th]}</span>
+   <div class="qen">${q.en}</div>
+   ${q.multi?'<div class="multi">Plusieurs réponses attendues — la question est juste seulement si la sélection est exactement la bonne.</div>':''}
+   ${q.ouverte
+     ? `<div class="multi">Question rédigée — ${q.minlen} caractères au minimum. Elle vaut un point, attribué selon les éléments attendus que contient votre réponse.</div>
+        <textarea class="redac" id="t${i}" rows="6" placeholder="Rédigez votre réponse…"></textarea>
+        <div class="cpt" id="cpt${i}">0 caractère</div>`
+     : q.op.map((o,j)=>`
+     <label class="opt" id="o${i}_${j}">
+      <input type="${q.multi?'checkbox':'radio'}" name="q${i}" value="${j}"> ${o}
+     </label>`).join('')}
+   <div class="corr" id="c${i}"></div>
+  </div>`).join('');
+
+ Q.forEach((q,i)=>{
+   if(q.ouverte){ document.getElementById('t'+i).addEventListener('input',()=>saisie(i)); }
+   else q.op.forEach((o,j)=>document.getElementById('o'+i+'_'+j).addEventListener('change',()=>saisie(i)));
+ });
+}
+
+function saisie(i){
+ if(valide) return;
+ const q = Q[i];
+ if(q.ouverte){
+   const t = document.getElementById('t'+i).value.trim();
+   document.getElementById('cpt'+i).textContent = t.length + (t.length>1?' caractères':' caractère')
+     + (t.length < q.minlen ? ' — encore ' + (q.minlen - t.length) : ' — longueur suffisante');
+   rep[i] = t.length >= q.minlen ? t : null;
+   avancement(); return;
+ }
+ const coches = [...document.querySelectorAll('input[name="q'+i+'"]')]
+   .map((el,j)=>el.checked?j:-1).filter(j=>j>=0);
+ rep[i] = q.multi ? (coches.length?coches:null) : (coches.length?coches[0]:null);
+ q.op.forEach((o,j)=>document.getElementById('o'+i+'_'+j)
+   .classList.toggle('sel', coches.includes(j)));
+ avancement();
+}
+
+function avancement(){
+ const faites = rep.filter(r=>r!==null).length;
+ document.getElementById('jauge').style.width = Math.round(faites/Q.length*100)+'%';
+ document.getElementById('compteur').textContent =
+   faites + (faites>1?' questions traitées':' question traitée') + ' sur ' + Q.length;
+ const b = document.getElementById('valider');
+ b.disabled = faites < Q.length;
+ document.getElementById('etatBtn').textContent = b.disabled
+   ? 'Répondez aux ' + Q.length + ' questions pour pouvoir valider.'
+   : 'Vous pouvez valider. Vos réponses seront alors figées.';
+}
+
+const AUTO = Q.map((q,i)=>i);
+
+/* ---------- correction des questions rédigées ----------
+   Même méthode que la base (prive.corriger_elements) : une formulation acceptée
+   est trouvée si ses mots figurent dans la réponse, dans l'ordre, chacun « proche »
+   (pluriel, féminin, une lettre d'écart à partir de 7 lettres), avec au plus
+   3 mots intercalés. Les mots de moins de 3 lettres ne comptent pas. */
+function motsNormalises(p){
+ let t = (p||'').toLowerCase();
+ const de='àâäáãçèéêëîïìíôöòóõùûüúñÿ’\'', ve='aaaaaceeeeiiiiooooouuuuny  ';
+ t = [...t].map(c=>{const k=de.indexOf(c); return k<0?c:ve[k];}).join('');
+ t = t.replace(/œ/g,'oe').replace(/æ/g,'ae').replace(/%/g,' pourcent ');
+ t = t.replace(/€|\beuros?\b/g,' ');
+ let avant; do { avant=t; t=t.replace(/(\d)[ .  ](\d{3})(?!\d)/g,'$1$2'); } while(t!==avant);
+ t = t.replace(/(\d),(\d)/g,'$1.$2').replace(/(\d)([a-z])/g,'$1 $2').replace(/([a-z])(\d)/g,'$1 $2');
+ t = t.replace(/[^a-z0-9.]+/g,' ').replace(/(^|\s)\.+|\.+(\s|$)/g,' ');
+ t = t.replace(/\s+/g,' ').trim();
+ return t ? t.split(' ') : [];
+}
+function motsProches(a,b){
+ if(!a||!b) return false; if(a===b) return true;
+ const num=/^\d+(\.\d+)?$/;
+ if(num.test(a)||num.test(b)) return num.test(a)&&num.test(b)&&parseFloat(a)===parseFloat(b);
+ const ra=a.replace(/(ent|es|s|x|e)$/,''), rb=b.replace(/(ent|es|s|x|e)$/,'');
+ if(ra.length>=3 && ra===rb) return true;
+ const la=a.length, lb=b.length;
+ if(Math.min(la,lb)<7 || Math.abs(la-lb)>1) return false;
+ let i=0,j=0,e=0;
+ while(i<la && j<lb){
+  if(a[i]===b[j]){i++;j++;}
+  else { e++; if(e>1) return false; if(la>lb) i++; else if(lb>la) j++; else {i++;j++;} }
+ }
+ return e+(la-i)+(lb-j)<=1;
+}
+function garder(m){ return m.filter(x=>x.length>=3 || /^\d/.test(x)); }
+function expressionTrouvee(mots, expr){
+ const w=garder(mots), e=garder(motsNormalises(expr));
+ if(!e.length||!w.length) return false;
+ for(let i=0;i<w.length;i++){
+  if(!motsProches(w[i],e[0])) continue;
+  let pos=i, ok=true;
+  for(let k=1;k<e.length;k++){
+   ok=false;
+   for(let j=pos+1;j<=Math.min(w.length-1,pos+4);j++){ if(motsProches(w[j],e[k])){pos=j;ok=true;break;} }
+   if(!ok) break;
+  }
+  if(ok) return true;
+ }
+ return false;
+}
+function corrigerElements(saisie, attendu){
+ const mots=motsNormalises(saisie); let obtenus=0,sur=0,nb=0; const trouves=[],manquants=[];
+ (attendu.elements||[]).forEach(el=>{
+  const pts=el.points==null?1:el.points; sur+=pts;
+  const t=(el.accepte||[]).some(a=>expressionTrouvee(mots,a));
+  if(t){obtenus+=pts;nb++;trouves.push(el.libelle);} else manquants.push(el.libelle);
+ });
+ if(attendu.mini!=null && nb>=attendu.mini) obtenus=sur;
+ return {trouves,manquants,obtenus,sur};
+}
+function gainOuverte(i){
+ const r = corrigerElements(rep[i]||'', Q[i].attendu);
+ return {r, gain: Math.round(100*r.obtenus/r.sur)/100};
+}
+
+
+function fmt(x){ return String(x).replace('.', ','); }
+function pointsQ(i){ return Q[i].ouverte ? gainOuverte(i).gain : (juste(i)?1:0); }
+function juste(i){
+ const q = Q[i], r = rep[i];
+ if(q.ouverte) return gainOuverte(i).gain>=1;
+ if(r===null) return false;
+ if(!q.multi) return r === q.c;
+ const a = [...r].sort().join(','), b = [...q.c].sort().join(',');
+ return a === b;
+}
+
+function libelle(i){
+ const q = Q[i], r = rep[i];
+ if(r===null) return "aucune réponse";
+ if(q.ouverte) return r;
+ return q.multi ? r.map(j=>q.op[j]).join(' + ') : q.op[r];
+}
+function attendu(i){
+ const q = Q[i];
+ return q.multi ? q.c.map(j=>q.op[j]).join(' + ') : q.op[q.c];
+}
+
+function corriger(){
+ valide = true;
+ document.querySelectorAll('.opt input').forEach(el=>el.disabled=true);
+ document.querySelectorAll('.redac').forEach(el=>el.disabled=true);
+ document.querySelectorAll('.opt').forEach(el=>el.classList.add('verrou'));
+ Q.forEach((q,i)=>{
+  if(q.ouverte){
+   const c = document.getElementById('c'+i); const g = gainOuverte(i);
+   c.className = 'corr on';
+   c.innerHTML = '<div class="enc '+(g.gain>=1?'':(g.gain>0?'ci':'al'))+'"><span class="t">'+(g.gain>=1?'✓ ':'')+'ÉLÉMENTS ATTENDUS — '+String(g.gain).replace('.',',')+' / 1 point</span>'
+     + (g.r.trouves.length?'<div>'+g.r.trouves.map(t=>'✓ '+t).join('<br>')+'</div>':'')
+     + (g.r.manquants.length?'<div style="margin-top:6px">'+g.r.manquants.map(t=>'✗ '+t).join('<br>')+'</div>':'')
+     + '<br><b>Réponse modèle.</b> ' + q.modele
+     + '<br><i style="font-size:13px;color:var(--gris-moyen)">' + q.rf + '</i></div>';
+   return;
+  }
+  const ok = juste(i);
+  const bonnes = q.multi ? q.c : [q.c];
+  q.op.forEach((o,j)=>{
+    const el = document.getElementById('o'+i+'_'+j);
+    el.classList.remove('sel');
+    if(bonnes.includes(j)) el.classList.add('bonne');
+    const choisi = q.multi ? rep[i].includes(j) : rep[i]===j;
+    if(choisi && !bonnes.includes(j)) el.classList.add('mauvaise');
+  });
+  const c = document.getElementById('c'+i);
+  c.className = 'corr on';
+  c.innerHTML = `<div class="enc ${ok?'':'al'}"><span class="t">${ok?'✓ RÉPONSE JUSTE':'✗ RÉPONSE ATTENDUE : '+attendu(i)}</span>${q.ex}<br><i style="font-size:13px;color:var(--gris-moyen)">${q.rf}</i></div>`;
+ });
+
+ const score = Math.round(100*AUTO.reduce((s,i)=>s+pointsQ(i),0))/100;
+ const NB = AUTO.length;
+ const pct = Math.round(score/NB*100);
+ const reussi = pct >= SEUIL;
+
+ const parTheme = {};
+ Object.keys(THEMES).forEach(t=>parTheme[t]={n:0,ok:0});
+ AUTO.forEach(i=>{ parTheme[Q[i].th].n++; parTheme[Q[i].th].ok = Math.round(100*(parTheme[Q[i].th].ok+pointsQ(i)))/100; });
+ Object.keys(parTheme).forEach(t=>{ if(parTheme[t].n===0) delete parTheme[t]; });
+
+ document.getElementById('resultat').innerHTML = `
+  <h2><span class="num">·</span>Votre résultat</h2>
+  <div class="score"><span class="gros">${fmt(score)} / ${NB}</span>
+   <span class="lib">${pct} % — seuil de réussite fixé à ${SEUIL} %</span></div>
+  <div class="carte">
+   <div class="enc ${reussi?'':'ci'}"><span class="t">${reussi?'SEUIL ATTEINT':'SEUIL NON ATTEINT'}</span>${
+     reussi
+     ? "Les savoirs généraux sont acquis : le cadre de l'activité, les catégories, le droit commun, les conditions d'accès, la lutte contre le blanchiment et la distribution. Ils servent de socle à toute la suite du parcours."
+     : "Reprenez les fiches mémo des modules où le score est le plus bas, refaites les exercices correspondants, puis repassez l'évaluation."}</div>
+   <table><thead><tr><th>Thème</th><th>Résultat</th></tr></thead><tbody>
+   ${Object.keys(parTheme).map(t=>`<tr><td>${THEMES[t]}</td><td class="n">${fmt(parTheme[t].ok)} / ${parTheme[t].n}</td></tr>`).join('')}
+   <tr class="tot"><td>Total</td><td class="n">${fmt(score)} / ${NB}</td></tr>
+   </tbody></table>
+   <div class="barre">
+    <button class="btn sec" id="retelecharger">⬇ Télécharger à nouveau le bilan</button>
+    <button class="btn sec" id="refaire">↻ Refaire l'évaluation pour m'entraîner</button>
+   </div>
+   <p style="font-size:12.5px;color:var(--gris-moyen);font-style:italic">Le bilan a été téléchargé automatiquement à la validation. Un nouveau passage ne remplace pas ce bilan : il ne sert qu'à l'entraînement.</p>
+  </div>`;
+
+ document.getElementById('valider').style.display='none';
+ document.getElementById('etatBtn').textContent = 'Évaluation validée — réponses figées.';
+ document.getElementById('retelecharger').addEventListener('click',()=>bilanHtml(score,pct,reussi,parTheme,NB));
+ document.getElementById('refaire').addEventListener('click',()=>location.reload());
+ bilanHtml(score,pct,reussi,parTheme,NB);
+ document.getElementById('resultat').scrollIntoView?.({behavior:'smooth',block:'start'});
+}
+
+function bilanHtml(score,pct,reussi,parTheme,NB){
+ const d = new Date();
+ const dd = d.toLocaleDateString('fr-FR') + ' à ' + d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+ const doc = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>Évaluation finale — Éthique et déontologie</title>
+<style>
+body{font-family:Nunito,Segoe UI,Arial,sans-serif;background:#FAF6F8;color:#3C3C3C;margin:0;line-height:1.6}
+.w{max-width:860px;margin:0 auto;padding:0 18px 50px}
+header{background:#5E1349;color:#fff;padding:20px 0;border-bottom:4px solid #C77BAA}
+h1{font-family:Georgia,serif;font-size:24px;margin:6px 0}
+h2{font-family:Georgia,serif;font-size:19px;color:#5E1349;border-bottom:2px solid #E8DCE5;padding-bottom:7px;margin-top:30px}
+.k{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#EAD3E3}
+.sc{background:#5E1349;color:#fff;border-radius:10px;padding:16px 20px;margin:16px 0;font-family:Georgia,serif;font-size:26px}
+.sc small{font-family:Nunito,Arial,sans-serif;font-size:14px;color:#EAD3E3;display:block}
+table{width:100%;border-collapse:collapse;background:#fff;margin:12px 0;font-size:14.5px}
+th,td{border:1px solid #E8DCE5;padding:8px 11px;text-align:left}
+thead th{background:#F4E6EE;color:#5E1349}
+.q{background:#fff;border:1px solid #E8DCE5;border-left:5px solid #2F7A4F;border-radius:8px;padding:13px 16px;margin:12px 0}
+.q.ko{border-left-color:#B23B3B}
+.q b{color:#283C28}
+.et{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#2F7A4F}
+.q.ko .et{color:#B23B3B}
+footer{text-align:center;font-size:12.5px;color:#8A7A85;border-top:1px solid #E8DCE5;margin-top:36px;padding-top:18px}
+@media print{body{background:#fff}}
+</style></head><body>
+<header><div class="w"><div class="k">${BANDEAU}</div>
+<h1>${TITRE_BILAN}</h1>
+<div class="k">Passage du ${dd}</div>
+${IDENT.actif ? '<div class="k">'+IDENT.prenom+' '+IDENT.nom+'</div>' : ''}</div></header><div class="w">
+<div class="sc">${fmt(score)} / ${NB}<small>${pct} % — seuil de réussite ${SEUIL} % — ${reussi?'seuil atteint':'seuil non atteint'}</small></div>
+<h2>Résultat par thème</h2>
+<table><thead><tr><th>Thème</th><th>Résultat</th></tr></thead><tbody>
+${Object.keys(parTheme).map(t=>`<tr><td>${THEMES[t]}</td><td>${fmt(parTheme[t].ok)} / ${parTheme[t].n}</td></tr>`).join('')}
+</tbody></table>
+<h2>Détail des réponses</h2>
+${Q.map((q,i)=>q.ouverte
+? `<div class="q ${gainOuverte(i).gain>=1?'':'ko'}"><div class="et">Question ${i+1} — ${THEMES[q.th]} — rédigée : ${String(gainOuverte(i).gain).replace('.',',')} / 1 point</div>
+<p><b>${q.en}</b></p><p>Votre réponse :</p><p style="white-space:pre-wrap">${libelle(i)}</p>
+<p>${gainOuverte(i).r.trouves.map(t=>'✓ '+t).join('<br>')}${gainOuverte(i).r.manquants.length?'<br>'+gainOuverte(i).r.manquants.map(t=>'✗ '+t).join('<br>'):''}</p>
+<p><b>Réponse modèle.</b> ${q.modele}</p>
+<p style="color:#8A7A85;font-size:13px">${q.rf}</p></div>`
+: `<div class="q ${juste(i)?'':'ko'}">
+<div class="et">Question ${i+1} — ${THEMES[q.th]} — ${juste(i)?'juste':'erreur'}</div>
+<p><b>${q.en}</b></p>
+<p>Votre réponse : ${libelle(i)}</p>
+${juste(i)?'':'<p>Réponse attendue : <b>'+attendu(i)+'</b></p>'}
+<p>${q.ex}</p><p style="color:#8A7A85;font-size:13px">${q.rf}</p></div>`).join('')}
+<footer>TMK Performances - N° Siret : 49841924100027 - Code NAF : 8559A</footer>
+</div></body></html>`;
+ const b = new Blob([doc],{type:'text/html;charset=utf-8'});
+ const a = document.createElement('a');
+ a.href = URL.createObjectURL(b);
+ a.download = 'Bilan_evaluation_' + CODE + (IDENT.actif ? '_' + IDENT.nom.replace(/[^A-Za-zÀ-ÿ-]/g,'') : '') + '_' + d.toISOString().slice(0,10) + '.html';
+ document.body.appendChild(a); a.click(); document.body.removeChild(a);
+ setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+}
+
+document.getElementById('valider').addEventListener('click',()=>{
+ if(rep.filter(r=>r!==null).length < Q.length) return;
+ corriger();
+});
+
+rendre(); avancement();
+
+
+/* ---------- écran d'identité : 360Learning oui, LMS non ----------
+   Le portail du LMS connaît déjà le stagiaire par sa session : l'écran y
+   ferait doublon. Il est donc sauté lorsque l'URL porte ?lms=1, valeur
+   ajoutée au media_url dans la matrice. Partout ailleurs — 360Learning,
+   ouverture directe — l'écran s'affiche et son identité est reportée
+   dans le bilan téléchargé. */
+const IDENT = {actif:false, nom:'', prenom:''};
+
+function contexteLms(){
+  const p = new URLSearchParams(window.location.search);
+  return p.get('lms') === '1' || p.get('contexte') === 'lms';
+}
+
+function ecranIdentite(){
+  if(contexteLms()) return;
+  const v = document.createElement('div');
+  v.id = 'voile';
+  v.innerHTML = `
+   <div class="ident">
+    <div class="qnum">Avant de commencer</div>
+    <div class="qen">Identifiez-vous</div>
+    <p style="font-size:14.5px;color:var(--gris-moyen);margin:0 0 14px">
+     Votre nom et votre prénom figureront sur le bilan que vous téléchargerez à la fin.</p>
+    <div class="champ"><span class="lb">Nom</span><input class="num" id="idNom" style="text-align:left"></div>
+    <div class="champ"><span class="lb">Prénom</span><input class="num" id="idPrenom" style="text-align:left"></div>
+    <div class="barre"><button class="btn" id="idOk">Commencer l'évaluation</button>
+     <span id="idErr" class="verdict ko"></span></div>
+   </div>`;
+  document.body.appendChild(v);
+  const valider = () => {
+    const n = document.getElementById('idNom').value.trim();
+    const p = document.getElementById('idPrenom').value.trim();
+    if(n.length < 2 || p.length < 2){
+      document.getElementById('idErr').textContent = 'Renseignez votre nom et votre prénom.'; return; }
+    IDENT.actif = true; IDENT.nom = n; IDENT.prenom = p;
+    v.remove();
+  };
+  document.getElementById('idOk').addEventListener('click', valider);
+  v.addEventListener('keydown', e => { if(e.key === 'Enter') valider(); });
+  document.getElementById('idNom').focus();
+}
+
+ecranIdentite();
+
+</script>
+</body></html>
